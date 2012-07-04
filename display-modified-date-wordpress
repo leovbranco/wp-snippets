@@ -1,0 +1,2 @@
+<!-- Mostra a data como: 28/06/2012 às 01h44  -->
+<div class="entry-modified-data"><?php the_modified_date('d/m/Y \à\s H\hi'); ?></div>
