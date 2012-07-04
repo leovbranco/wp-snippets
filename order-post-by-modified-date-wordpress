@@ -1,0 +1,8 @@
+// Order post by modified date
+function dfw_query_orderby_modified($query) {
+    if (is_home() || is_home() && is_paged()) {
+        $query->query_vars['orderby'] = 'modified';
+        return;
+    }
+}
+add_filter('pre_get_posts', 'dfw_query_orderby_modified');
