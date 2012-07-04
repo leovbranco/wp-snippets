@@ -1,0 +1,9 @@
+<?php
+if (have_posts() && is_home()) {
+    query_posts('orderby=rand');
+    while (have_posts()) {
+        the_post();
+        wp_redirect(get_permalink());
+    }
+}
+?>
