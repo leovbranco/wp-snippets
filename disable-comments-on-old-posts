@@ -1,0 +1,11 @@
+<?php
+                function close_comments( $posts ) {
+                        if ( !is_single() ) { return $posts; }
+                        if ( time() - strtotime( $posts[0]->post_date_gmt ) > ( 30 * 24 * 60 * 60 ) ) {
+                        $posts[0]->comment_status = 'closed';
+                        $posts[0]->ping_status    = 'closed';
+                        }
+                return $posts;
+                }
+                add_filter( 'the_posts', 'close_comments' );
+                ?>
