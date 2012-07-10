@@ -1,0 +1,12 @@
+<?php
+$attachments = get_children(
+    array(
+        'post_type' => 'attachment',
+        'post_mime_type' => 'image',
+        'post_parent' => $post->ID
+    ));
+if(count($attachments) > 1) { ?>
+    <!-- Do something like show a slider -->
+<?php } else { ?>
+    <!-- Display a single image -->
+<?php } ?>
