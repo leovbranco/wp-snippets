@@ -1,0 +1,1 @@
+<img src="http://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<?php the_permalink(); ?>" alt="QR:  <?php the_title(); ?>"/>
