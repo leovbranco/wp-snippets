@@ -1,0 +1,20 @@
+//////////////////////////////////////////////////////////////////////////
+///     Limita o título dos posts na quantidade de caracteres desejado  /////
+////////////////////////////////////////////////////////////////////////
+ 
+function title_limite($maximo) {
+$title = get_the_title();
+if ( strlen($title) > $maximo ) {
+$continua = '...';
+}
+$title = mb_substr( $title, 0, $maximo, 'UTF-8' );
+echo $title.$continua;
+}
+// para chamar a função use title_limite(20);
+Para chamar a função use o comando title_limite(), coloque a quantidade de caracteres dentro dos parenteses, abaixo um exemplo:
+
+<h2>
+<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" rel="bookmark">
+<?php title_limite(38); ?>
+</a>
+</h2>
