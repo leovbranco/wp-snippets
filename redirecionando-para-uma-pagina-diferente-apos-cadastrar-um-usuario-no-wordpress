@@ -1,0 +1,4 @@
+function redirect_after_register_user($user_id) {
+		echo '<script type="text/javascript">window.location = "http://seusite.com/wp-admin/user-edit.php?user_id='.$user_id.'"</script>';
+	}
+	add_action( 'user_register', 'redirect_after_register_user');
