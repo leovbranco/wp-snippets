@@ -1,0 +1,9 @@
+function user_profile_update( $user_id ) {
+        $site_url = get_bloginfo('wpurl');
+        $user_info = get_userdata( $user_id );
+        $to = $user_info->user_email;
+        $subject = "Profile Updated: ".$site_url."";
+        $message = "Hello " .$user_info->display_name . "\nYour profile has been updated!\n\nThank you for visiting\n ".$site_url."";
+        wp_mail( $to, $subject, $message);
+}
+add_action( 'profile_update', 'user_profile_update', 10, 2);
