@@ -1,0 +1,10 @@
+add_action( 'load-edit.php', 'wpmidia_posts_for_current_author' );
+function wpmidia_posts_for_current_author() {
+	global $user_ID;
+
+	if ( ! isset( $_GET['author'] ) ) {
+		wp_redirect( add_query_arg( 'author', $user_ID ) );
+		exit;
+	}
+
+}
