@@ -1,0 +1,8 @@
+<li><h2>Random Post</h2>
+<ul>
+<?php $posts = get_posts('orderby=rand&numberposts=5'); foreach($posts as $post) { ?>
+<li><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+</li>
+<?php } ?>
+</ul>
+</li>
