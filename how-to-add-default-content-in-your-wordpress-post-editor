@@ -1,0 +1,5 @@
+add_filter( 'default_content', 'my_editor_content' );
+function my_editor_content( $content ) {
+	$content = "If you like this post, then please consider retweeting it or sharing it on Facebook.";
+	return $content;
+}
