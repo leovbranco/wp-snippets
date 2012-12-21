@@ -1,0 +1,16 @@
+/* adiciona o filtragem de posts por autor */
+
+add_action('restrict_manage_posts', 'wpmidia_restrict_manage_authors');
+function wpmidia_restrict_manage_authors() {
+        global $current_screen;
+        $post_type = $current_screen->post_type;
+        if( in_array($post_type , array('post', 'produto')) ){ // dentro do array vão os tipos de post que você deseja adicionar o filtro
+                wp_dropdown_users(array(
+                        'show_option_all'       => __('Todos os autores', 'wpmidia'),
+                        'show_option_none'      => false,
+                        'name'                  => 'author',
+                        'selected'              => !empty($_GET['author']) ? $_GET['author'] : 0,
+                        'include_selected'      => false
+                ));
+        }
+}
