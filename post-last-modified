@@ -1,0 +1,10 @@
+Posted on <?php the_time('F jS, Y') ?>
+<?php
+          $u_time = get_the_time('U');
+          $u_modified_time = get_the_modified_time('U');
+      if ($u_modified_time != $u_time) {
+                echo "and last modified on ";
+                the_modified_time('F jS, Y');
+                echo ". ";
+          }
+?>
