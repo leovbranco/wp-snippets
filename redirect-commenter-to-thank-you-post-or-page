@@ -1,0 +1,5 @@
+add_filter('comment_post_redirect', 'redirect_after_comment');
+function redirect_after_comment(){
+      wp_redirect('/page/');
+      exit();
+}
