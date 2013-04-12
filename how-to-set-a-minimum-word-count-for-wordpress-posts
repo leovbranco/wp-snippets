@@ -1,0 +1,8 @@
+function minWord($content)
+{
+	global $post;
+	$content = $post->post_content;
+	if (str_word_count($content) < 100 ) //set this to the minimum number of words
+	wp_die( __('Error: your post is below the minimum word count. It needs to be longer than 100 words.') );
+}
+add_action('publish_post', 'minWord');
