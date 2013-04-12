@@ -1,0 +1,13 @@
+<?php
+if((get_the_time('U') < strtotime('1 months ago'))) { 
+	$now = new DateTime();
+	$ref = new DateTime(get_the_time('r'));
+	$diff = $now->diff($ref);
+	$interval = "";
+	if ($diff->y){$interval .= $diff->y . " year" . ($diff->y == 1?"":"s");}
+	if ($diff->m){$interval .= ($interval?", ":"") . $diff->m . " month" . ($diff->m == 1?"":"s");} ?>
+ 
+	<div style="color:red; margin-top:20px">
+		Esta vaga foi publicada <strong><?php echo $interval; ?> Atrás</strong>. Está vaga pode ter cido preenchida ou não estar mais disponível.
+	</div>
+<?php } ?>
