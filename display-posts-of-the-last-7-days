@@ -1,0 +1,18 @@
+<?php $slider_query = new WP_Query('posts_per_page=5&cat=3&orderby=highest_rated&order=desc'); ?>
+
+<?php
+
+$mylimit = 7 * 86400; //days * seconds per day
+
+while ($slider_query->have_posts()) : $slider_query->the_post();
+
+    $post_age = date('U') - get_post_time('U');
+
+    if ($post_age < $mylimit) { 
+?>
+
+//The Post
+
+<?php } ?>
+
+<?php endwhile;?>
