@@ -1,0 +1,6 @@
+<?php
+/**
+ * Plugin Name: Disable Post Format UI
+ */
+! defined( 'ABSPATH' ) and exit;
+add_filter( 'enable_post_format_ui', '__return_false' );
