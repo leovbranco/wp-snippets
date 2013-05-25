@@ -1,0 +1,6 @@
+function add_class_the_tags($html){
+    $postid = get_the_ID();
+    $html = str_replace('<a','<a class="wpsnipp"',$html);
+    return $html;
+}
+add_filter('the_tags','add_class_the_tags',10,1);
