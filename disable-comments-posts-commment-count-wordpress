@@ -1,0 +1,12 @@
+<?php
+$comment_count = 100;
+function disable_comments( $posts ) {
+ if ( !is_single() ) { return $posts; }
+ if ( $posts[0]->comment_count > $comment_count ) {
+ $posts[0]->comment_status = 'disabled';
+ $posts[0]->ping_status = 'disabled';
+ }
+return $posts;
+}
+add_filter( 'the_posts', 'disable_comments' );
+?>
