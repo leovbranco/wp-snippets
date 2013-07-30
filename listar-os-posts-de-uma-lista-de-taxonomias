@@ -1,0 +1,28 @@
+---
+published: false
+---
+
+<?php
+$args=array(
+// Define a taxonomia chamada estado
+'parent' => '0',
+'orderby' => 'date',
+'taxonomy' => 'estado',
+'order' => 'DESC'
+);
+$categories=get_categories($args);
+foreach($categories as $category) {
+?>
+ 
+<h2><?php echo $category->name; ?></h2>
+ 
+<?php query_posts( array( 'post_type' => 'cidades',  'orderby' => 'title', 'order' => 'ASC', 'estado'=> $category->slug, 'showposts' => -1) );?>
+ 
+<?php if(have_posts()) : ?>
+<?php while(have_posts()) : the_post(); ?>
+ 
+<h3><a href="<?php the_permalink(); ?>" title="Veja mais detalhes <?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
+ 
+<?php endwhile; endif; ?>
+ 
+<?php }  ?>
