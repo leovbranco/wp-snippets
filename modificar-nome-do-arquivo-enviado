@@ -1,0 +1,8 @@
+function make_filename_hash($filename) {
+    $nomedosite = get_bloginfo('name');
+    $info = pathinfo($filename);
+    $ext  = empty($info['extension']) ? '' : '.' . $info['extension'];
+    $name = basename($filename, $ext);
+    return $nomedosite.'_'.md5($name) . $ext;
+}
+add_filter('sanitize_file_name', 'make_filename_hash', 10);
