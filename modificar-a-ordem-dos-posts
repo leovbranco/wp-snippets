@@ -1,0 +1,8 @@
+function sort_categories_by_title($x) {
+    if (is_category('lugares')) { //o nome da categoria
+        $x->query_vars['orderby'] = 'title';
+        $x->query_vars['order'] = 'ASC';
+    }
+}
+ 
+add_action('pre_get_posts', 'sort_categories_by_title');
