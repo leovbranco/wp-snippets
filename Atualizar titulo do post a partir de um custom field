@@ -17,8 +17,10 @@ function atualizar_titulo_do_post($post_id) {
     remove_action( 'save_post', 'atualizar_titulo_do_post' );
     
     $emprend = get_post_meta($post_id, "empreendimento", true);
-    $emprend_mes = get_post_meta($post_id, "mes", true)[0];
-    $emprend_ano = get_post_meta($post_id, "ano", true)[0];
+    $emprend_mes = get_post_meta($post_id, "mes", true);
+    $emprend_mes = $emprend_mes[0];
+    $emprend_ano = get_post_meta($post_id, "ano", true);
+    $emprend_ano = $emprend_ano[0];
         
     $novo_titulo = get_the_title($emprend)." - ".$emprend_mes." ".$emprend_ano;
 
