@@ -1,0 +1,4 @@
+new WP_Query( array( 
+  'meta_key' => '_zilla_likes',
+  'orderby' => 'meta_value_num'
+));
