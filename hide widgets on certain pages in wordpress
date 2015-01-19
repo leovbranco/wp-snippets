@@ -1,0 +1,8 @@
+add_filter( 'widget_display_callback', 'hide_widget_pages', 10, 3 );
+function hide_widget_pages( $instance, $widget, $args ) {
+if ( $widget->id_base == 'pages' ) { // change 'pages' to widget name
+if ( !is_page( 'contact' ) ) {    // change page name
+return false;
+}
+}
+}
