@@ -1,0 +1,18 @@
+## A New Post
+
+add_action('pre_get_posts','dkc_post_home');
+
+function dkc_post_home($dkc) {
+
+
+ if(is_home()) {
+
+
+  $dkc->query_vars['posts_per_page'] = '2'; //o no. de posts a se mostrar
+
+  $dkc->query_vars['category_name'] = 'wordpress'; // o slug da categoria
+
+ }
+
+
+}
